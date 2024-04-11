@@ -2,3 +2,5 @@ teams(ID,name,championships,league,conference,revenue,colors,founded,stadium)
 staff(teamID,staffID,role,description,name)
 user(admin,username, password)
 stadiums(name,capacity,address,ticket,attendance,location)
+
+>>>>>>> 5b3e168b28dc15f9f12821c9eced90d938983570
