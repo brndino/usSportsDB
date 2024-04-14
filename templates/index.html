@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Registration_Page</title>
+</head>
+<body>
+    <h1>WELCOME TO THE STADIUM FINDER/SPORTS APP</h1>
+    {%  if my_message  %}
+    <p>{{  my_message  }}</p>
+    {%  endif  %}
+    <h2>Option 1: Registration</h2>
+
+    <form action="/register" method="POST">
+
+        <label for="reg_username">Username:</label><br>
+
+        <input type="text" id="reg_username" name="username" required><br>
+
+        <label for="reg_password">Password:</label><br>
+
+        <input type="password" id="reg_password" name="password" required><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <h2>Option 2: Login</h2>
+    <form action="/login" method="POST">
+
+        <label for="login_username">Username:</label><br>
+
+        <input type="text" id="login_username" name="username" required><br>
+
+        <label for="login_password">Password:</label><br>
+
+        <input type="password" id="login_password" name="password" required><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <h2>Option 3: Deactivate Account</h2>
+    <form action="/deactivate" method= "POST" >
+
+        <label for= "deactivate_username" >Username:</label><br>
+
+        <input type="text" id="deactivate_username" name="username" required><br><br>
+
+        <input type="submit" value= "Deactivate Account" >
+
+    </form>
+</body>
+
+</html>
