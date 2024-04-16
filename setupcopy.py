@@ -27,73 +27,58 @@ mycursor = mydb.cursor()
 print("Connected to the database successfully")
 
 # Create tables with the specified attributes
-mycursor.execute(
-    '''CREATE TABLE IF NOT EXISTS Teams (
-        Team varchar(64),
-        ID int,
-        Location varchar(64),
-        Championships int,
-        League varchar(64),
-        Conference varchar(64),
-        Founded int,
-        Revenue int,
-        Colors varchar(64),
-        Attendance int,
-        Ticket float,
-        Stadium varchar(64),
-        PRIMARY KEY (ID)
-    )'''
-)
-data = pd.read_csv('teamsTable.csv',index_col= False)
-sql = "INSERT INTO Teams (Team,ID,Championships,League,Conference,Founded,Revenue,Colors,Attendance,Ticket,Stadium) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-for i, row in data.iterrows():
-    data_tuple = (
-        row['Team'],
-        row['ID'],
-        row['Championships'],  # This assumes the typo in your example ('Championshsips') is fixed
-        row['League'],
-        row['Conference'],
-        row['Founded'],
-        row['Revenue'],
-        row['Colors'],
-        row['Attendance'],
-        row['Ticket'],
-        row['Stadium']
+mycursor.execute("""
+
+        CREATE TABLE IF NOT EXISTS Teams (
+    Team varchar(64),
+    ID int,
+    Championships int,
+    League varchar(64),
+    Conference varchar(64),
+    Founded int,
+    Revenue int,
+    Colors varchar(64),
+    Attendance int,
+    Ticket float,
+    Stadium varchar(64),
+    PRIMARY KEY (ID)
     )
-    mycursor.execute(sql, data_tuple)
-    mydb.commit()
-'''
-mycursor.execute(
-    CREATE TABLE IF NOT EXISTS Staff (
-        teamID INT,
-        staffID INT AUTO_INCREMENT PRIMARY KEY,
-        role VARCHAR(255),
-        description TEXT,
-        name VARCHAR(255),
-        FOREIGN KEY (teamID) REFERENCES Teams(ID)
-    )
+"""
 )
 
-mycursor.execute(
+#Name,Position,Desc,Tid,Sid
+mycursor.execute('''
+    CREATE TABLE IF NOT EXISTS Staff (
+        Name VARCHAR(64),
+        Tid INT,
+        Sid INT PRIMARY KEY,
+        Position VARCHAR(255),
+        Description text,
+        FOREIGN KEY (Tid) REFERENCES Teams(ID)
+    )'''
+)
+
+mycursor.execute('''
     CREATE TABLE IF NOT EXISTS Users (
         userID INT AUTO_INCREMENT PRIMARY KEY,
         admin BOOLEAN,
         username VARCHAR(255),
         password VARCHAR(255)
+                
     )
+                 '''
+    
+)
+#Name,Size,Location
+mycursor.execute('''
+    CREATE TABLE IF NOT EXISTS Stadiums (
+        name VARCHAR(255),
+        size INT,
+        Location VARCHAR(255),
+        PRIMARY KEY (name)
+    )'''
 )
 
-mycursor.execute(
-    CREATE TABLE IF NOT EXISTS Stadiums (
-        name VARCHAR(255) PRIMARY KEY,
-        capacity INT,
-        address VARCHAR(255),
-        ticket VARCHAR(255),
-        attendance INT,
-        location VARCHAR(255)
-    )
-)
-'''
 
 # Commit changes to the database
 mydb.commit()
