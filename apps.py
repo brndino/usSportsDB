@@ -4,16 +4,18 @@ import hashlib
 
 app = Flask(__name__)
 
-class UserAuthenticator:
-    def __init__(self):
-        self.db = mysql.connector.connect(
+mydb = mysql.connector.connect(
             host="sportswiki.c78k8gy42c1h.us-east-2.rds.amazonaws.com",
             port="3306",
             user="admin",
             password="cHKjaZwK9biQcaR9UM65",
             database="sportswiki"
         )
-        self.cursor = self.db.cursor()
+
+class UserAuthenticator:
+    def __init__(self):
+        
+        self.cursor = mydb.cursor()
 
     def register(self, username, password):
         print(f"Received username: {username}, password: {password}")
@@ -27,7 +29,7 @@ class UserAuthenticator:
         sql = "INSERT INTO Users (admin, username, password) VALUES (%s, %s, %s)"
         val = (False, username, hashed_password)
         self.cursor.execute(sql, val)
-        self.db.commit()
+        mydb.commit()
         return True  # Registration was successful
         
 
@@ -39,7 +41,7 @@ class UserAuthenticator:
 
     def deactivate_account(self, username):
         self.cursor.execute("DELETE FROM Users WHERE username = %s", (username,))
-        self.db.commit()
+        mydb.commit()
         return self.cursor.rowcount > 0  # Returns True if any row was deleted, meaning account was found and deleted
 
 authenticator = UserAuthenticator()
@@ -70,7 +72,7 @@ def login():
     username = request.form['username']
     password = request.form['password']
     if authenticator.login(username, password):
-        return "Login Was Successful!"
+        return redirect(url_for('home'))
     else:
         return "Invalid Username and/or Password."
 
@@ -87,6 +89,22 @@ def deactivate():
         return "Account Was Removed From the System!"
     else:
         return "Account Is Invalid/Not Found"
+
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/results')
+def results():
+    term = request.args.get('term')
+    if term:
+        cursor = mydb.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM Teams WHERE Team LIKE %s", ('%' + term + '%',))
+        teams = cursor.fetchall()
+        print("Teams:", teams)
+        return render_template('results.html', teams=teams)
+    else:
+        return "No search term provided"
 
 if __name__ == '__main__':
     app.run(debug=True)
