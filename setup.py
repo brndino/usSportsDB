@@ -70,28 +70,9 @@ mycursor.execute(
         location VARCHAR(255)
     )'''
 )
-# Define the user details
-user_data = {
-    "admin": False,  # Set to True if the user is an admin, False otherwise
-    "username": "example_user",
-    "password": "example_password"
-}
 
-# Insert the user into the Users table
-sql = "INSERT INTO Users (admin, username, password) VALUES (%s, %s, %s)"
-val = (user_data["admin"], user_data["username"], user_data["password"])
-
-mycursor.execute(sql, val)
 # Commit changes to the database
 mydb.commit()
-# Execute a SELECT query to retrieve all rows from the Users table
-mycursor.execute("SELECT * FROM Users")
 
-# Fetch all rows from the result set
-users = mycursor.fetchall()
-
-# Print the retrieved user data
-for user in users:
-    print(user)
 # Show databases (optional)
 mycursor.execute("SHOW DATABASES")

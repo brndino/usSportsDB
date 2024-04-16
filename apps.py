@@ -1,46 +1,46 @@
 from flask import Flask, render_template, request , redirect, url_for
+import mysql.connector
 import hashlib
 
 app = Flask(__name__)
 
 class UserAuthenticator:
     def __init__(self):
-        self.credentials = {}
-        self.load_credentials()
-
-    def load_credentials(self):
-        try:
-            with open('credentials.txt', 'r') as file:
-                for line in file:
-                    username, password = line.strip().split( ':' )
-                    self.credentials[username] = password
-        except FileNotFoundError:
-            pass
-
-    def save_credentials(self):
-        with open('credentials.txt', 'w') as file:
-            for username, password in self.credentials.items():
-                file.write(f"{username}:{password}\n")
+        self.db = mysql.connector.connect(
+            host="sportswiki.c78k8gy42c1h.us-east-2.rds.amazonaws.com",
+            port="3306",
+            user="admin",
+            password="cHKjaZwK9biQcaR9UM65",
+            database="sportswiki"
+        )
+        self.cursor = self.db.cursor()
 
     def register(self, username, password):
-        if username in self.credentials:
-            return False  #The username already exist.
+        print(f"Received username: {username}, password: {password}")
+    
+        # Check if the username already exists
+        self.cursor.execute("SELECT * FROM Users WHERE username = %s", (username,))
+        user = self.cursor.fetchone()
+        if user:
+            return False  # The username already exists
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
-        self.credentials[username] = hashed_password
-        self.save_credentials()
+        sql = "INSERT INTO Users (admin, username, password) VALUES (%s, %s, %s)"
+        val = (False, username, hashed_password)
+        self.cursor.execute(sql, val)
+        self.db.commit()
         return True  # Registration was successful
+        
 
     def login(self, username, password):
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
-        return username in self.credentials and self.credentials[username] == hashed_password
+        self.cursor.execute("SELECT * FROM Users WHERE username = %s AND password = %s", (username, hashed_password))
+        user = self.cursor.fetchone()
+        return bool(user)  # If user is not None, login successful
 
     def deactivate_account(self, username):
-        if username in self.credentials:
-            del self.credentials[username]
-            self.save_credentials()
-            return True  # The Account is Activated.
-        else:
-            return False  # The Account was not found within the system.
+        self.cursor.execute("DELETE FROM Users WHERE username = %s", (username,))
+        self.db.commit()
+        return self.cursor.rowcount > 0  # Returns True if any row was deleted, meaning account was found and deleted
 
 authenticator = UserAuthenticator()
 
@@ -75,17 +75,9 @@ def login():
         return "Invalid Username and/or Password."
 
 
-
-
-
-
-
 @app.route('/loginPage') 
 def login_page():
     return render_template('login.html')
-
-
-
 
 
 @app.route('/deactivate', methods=[ 'POST'] ) #updates the next page when app is deactivated.
@@ -98,3 +90,4 @@ def deactivate():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    

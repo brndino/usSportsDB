@@ -7,19 +7,16 @@
 </head>
 <body>
     <h1>WELCOME TO THE STADIUM FINDER/SPORTS APP</h1>
-    {%  if my_message  %}
-    <p>{{  my_message  }}</p>
-    {%  endif  %}
     <h2>Option 1: Registration</h2>
 
-    <form action="/register" method="POST">
-
+    <form action="/registration" method="POST">
         <label for="reg_username">Username:</label><br>
-
         <input type="text" id="reg_username" name="username" required><br>
+        {% if message %}
+        <span>{{ message }}</span><br>
+        {% endif %}
 
         <label for="reg_password">Password:</label><br>
-
         <input type="password" id="reg_password" name="password" required><br>
 
         <input type="submit" value="Register">
