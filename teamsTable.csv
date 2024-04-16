@@ -1,4 +1,3 @@
-final
 Team,ID,Location,Championshsips,League,Conference,Founded,Revenue,Colors,Attendance,Ticket,Stadium
 Atlanta Hawks,0.0,"Atlanta, GA",1.0,NBA,EASTERN CONFERENCE,1946,326.0,"Red, Black",17555,204.26,State Farm Arena
 Boston Celtics,1.0,"Boston, MA",17.0,NBA,EASTERN CONFERENCE,1949,443.0,"Green, White",19156,536.69,TD Garden
