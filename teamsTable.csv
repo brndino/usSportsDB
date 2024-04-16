@@ -1,0 +1,154 @@
+Team,ID,Location,Championshsips,League,Conference,Founded,Revenue,Colors,Attendance,Ticket,Stadium
+Atlanta Hawks,0.0,"Atlanta, GA",1.0,NBA,EASTERN CONFERENCE,1946,326.0,"Red, Black",17555,204.26,State Farm Arena
+Boston Celtics,1.0,"Boston, MA",17.0,NBA,EASTERN CONFERENCE,1949,443.0,"Green, White",19156,536.69,TD Garden
+Brooklyn Nets,2.0,"Brooklyn, NY",0.0,NBA,EASTERN CONFERENCE,1967,367.0,"Black, White",17669,461.59,Barclays Center
+Charlotte Hornets,3.0,"Charlotte, NC",0.0,NBA,EASTERN CONFERENCE,1988,269.0,"Teal, Purple",17123,158.72,Spectrum Center
+Chicago Bulls,4.0,"Chicago, IL",6.0,NBA,EASTERN CONFERENCE,1966,372.0,"Red, Black",20527,412.0,United Center
+Cleveland Cavaliers,5.0,"Cleveland, OH",1.0,NBA,EASTERN CONFERENCE,1970,348.0,"Wine, Gold",19432,217.05,Rocket Mortgage FieldHouse
+Dallas Mavericks,6.0,"Dallas, TX",1.0,NBA,WESTERN CONFERENCE,1980,429.0,"Navy Blue, Silver",20177,269.41,American Airlines Center
+Denver Nuggets,7.0,"Denver, CO",1.0,NBA,WESTERN CONFERENCE,1967,348.0,"Navy, Gold",19235,247.85,Ball Arena
+Detroit Pistons,8.0,"Detroit, MI",3.0,NBA,EASTERN CONFERENCE,1948,274.0,"Royal Blue, Red",18529,189.54,Little Caesars Arena
+Golden State Warriors,9.0,"San Francisco, CA",7.0,NBA,WESTERN CONFERENCE,1946,765.0,"Royal Blue, Gold",18064,608.39,Chase Center
+Houston Rockets,10.0,"Houston, TX",2.0,NBA,WESTERN CONFERENCE,1967,381.0,"Red, Silver",16313,190.22,Toyota Center
+Indiana Pacers,11.0,"Indianapolis, IN",0.0,NBA,EASTERN CONFERENCE,1967,263.0,"Navy Blue, Gold",15647,163.45,Gainbridge Fieldhouse
+LA Clippers,12.0,"Los Angeles, CA",0.0,NBA,WESTERN CONFERENCE,1970,425.0,"Red, Blue",17574,295.89,Crypto.com Arena
+Los Angeles Lakers,13.0,"Los Angeles, CA",18.0,NBA,WESTERN CONFERENCE,1947,516.0,"Purple, Gold",18613,506.05,Crypto.com Arena
+Memphis Grizzlies,14.0,"Memphis, TN",0.0,NBA,WESTERN CONFERENCE,1995,258.0,"Navy Blue, Light Blue",17264,264.11,FedExForum
+Miami Heat,15.0,"Miami, FL",3.0,NBA,EASTERN CONFERENCE,1988,371.0,"Red, Black",19687,319.09,Kaseya Center
+Milwaukee Bucks,16.0,"Milwaukee, WI",2.0,NBA,EASTERN CONFERENCE,1968,329.0,"Green, Cream",17531,355.9,Fiserv Forum
+Minnesota Timberwolves,17.0,"Minneapolis, MN",0.0,NBA,WESTERN CONFERENCE,1989,259.0,"Navy Blue, Green",16768,336.84,Target Center
+New Orleans Pelicans,18.0,"New Orleans, LA",0.0,NBA,WESTERN CONFERENCE,2002,262.0,"Navy, Gold",16772,195.78,Smoothie King Center
+New York Knicks,19.0,"New York, NY",2.0,NBA,EASTERN CONFERENCE,1946,504.0,"Blue, Orange",19392,745.18,Madison Square Garden
+Oklahoma City Thunder,20.0,"Oklahoma City, OK",1.0,NBA,WESTERN CONFERENCE,1967,267.0,"Blue, Orange",15534,188.38,Paycom Center
+Orlando Magic,21.0,"Orlando, FL",0.0,NBA,EASTERN CONFERENCE,1989,261.0,"Blue, Black",17765,235.3,Kia Center
+Philadelphia 76ers,22.0,"Philadelphia, PA",3.0,NBA,EASTERN CONFERENCE,1946,371.0,"Blue, Red",20469,291.96,Wells Fargo Center
+Phoenix Suns,23.0,"Phoenix, AZ",0.0,NBA,WESTERN CONFERENCE,1968,366.0,"Purple, Orange",17071,343.22,Footprint Center
+Portland Trail Blazers,24.0,"Portland, OR",1.0,NBA,WESTERN CONFERENCE,1970,300.0,"Black, Red",18716,191.52,Moda Center
+Sacramento Kings,25.0,"Sacramento, CA",0.0,NBA,WESTERN CONFERENCE,1948,289.0,"Purple, Silver",17451,240.32,Golden 1 Center
+San Antonio Spurs,26.0,"San Antonio, TX",5.0,NBA,WESTERN CONFERENCE,1967,319.0,"Black, Silver",16937,208.5,Frost Bank Center
+Toronto Raptors,27.0,"Toronto, ON",1.0,NBA,EASTERN CONFERENCE,1995,305.0,"Red, Black",19786,361.59,Scotiabank Arena
+Utah Jazz,28.0,"Salt Lake City, UT",0.0,NBA,WESTERN CONFERENCE,1974,274.0,"Navy Blue, Green",18206,177.75,Delta Center
+Washington Wizards,29.0,"Washington, DC",1.0,NBA,EASTERN CONFERENCE,1961,323.0,"Navy, Red",17328,222.82,Capital One Arena
+Arizona Cardinals,30.0,"Glendale, AZ",0.0,NFL,NFC,1898,500.0,"Cardinal Red, Black",62864,98.54,State Farm Stadium
+Atlanta Falcons,31.0,"Atlanta, GA",0.0,NFL,NFC,1965,544.0,"Black, Red",69603,111.54,Mercedes-Benz Stadium
+Baltimore Ravens,32.0,"Baltimore, MD",2.0,NFL,AFC,1996,544.0,"Purple, Black",70597,120.27,M&T Bank Stadium
+Buffalo Bills,33.0,"Orchard Park, NY",0.0,NFL,AFC,1959,503.0,"Royal Blue, Red",69609,101.64,Highmark Stadium
+Carolina Panthers,34.0,"Charlotte, NC",0.0,NFL,NFC,1993,530.0,"Black, Blue",71635,115.45,Bank of America Stadium
+Chicago Bears,35.0,"Chicago, IL",1.0,NFL,NFC,1920,556.0,"Navy Blue, Orange",61769,130.29,Soldier Field
+Cincinnati Bengals,36.0,"Cincinnati, OH",0.0,NFL,AFC,1968,498.0,"Black, Orange",66040,101.78,Paycor Stadium
+Cleveland Browns,37.0,"Cleveland, OH",0.0,NFL,AFC,1944,545.0,"Brown, Orange",67810,122.18,Cleveland Browns Stadium
+Dallas Cowboys,38.0,"Arlington, TX",5.0,NFL,NFC,1960,1140.0,"Navy Blue, Silver",93594,116.69,AT&T Stadium
+Denver Broncos,39.0,"Denver, CO",3.0,NFL,AFC,1959,563.0,"Orange, Navy Blue",76388,131.91,Empower Field at Mile High
+Detroit Lions,40.0,"Detroit, MI",0.0,NFL,NFC,1930,495.0,"Honolulu Blue, Silver",64850,107.31,Ford Field
+Green Bay Packers,41.0,"Green Bay, WI",4.0,NFL,NFC,1919,577.0,"Green, Gold",77829,141.48,Lambeau Field
+Houston Texans,42.0,"Houston, TX",0.0,NFL,AFC,1999,605.0,"Deep Steel Blue, Battle Red",71193,117.45,NRG Stadium
+Indianapolis Colts,43.0,"Indianapolis, IN",2.0,NFL,AFC,1953,545.0,"Royal Blue, White",65230,107.0,Lucas Oil Stadium
+Jacksonville Jaguars,44.0,"Jacksonville, FL",0.0,NFL,AFC,1993,517.0,"Teal, Black",69031,102.22,TIAA Bank Field
+Kansas City Chiefs,45.0,"Kansas City, MO",4.0,NFL,AFC,1959,540.0,"Red, Gold",70968,131.81,GEHA Field at Arrowhead Stadium
+Las Vegas Raiders,46.0,"Las Vegas, NV",3.0,NFL,AFC,1960,729.0,"Silver, Black",62190,168.83,Allegiant Stadium
+Los Angeles Chargers,47.0,"Inglewood, CA",0.0,NFL,AFC,1959,518.0,"Powder Blue, Gold",73150,106.23,SoFi Stadium
+Los Angeles Rams,48.0,"Inglewood, CA",2.0,NFL,NFC,1936,686.0,"Royal Blue, Yellow",69736,103.9,SoFi Stadium
+Miami Dolphins,49.0,"Miami Gardens, FL",2.0,NFL,AFC,1965,600.0,"Aqua, Orange",65922,104.45,Hard Rock Stadium
+Minnesota Vikings,50.0,"Minneapolis, MN",0.0,NFL,NFC,1960,540.0,"Purple, Gold",66913,123.37,U.S. Bank Stadium
+New England Patriots,51.0,"Foxborough, MA",6.0,NFL,AFC,1959,684.0,"Navy Blue, Red",63018,142.74,Gillette Stadium
+New Orleans Saints,52.0,"New Orleans, LA",1.0,NFL,NFC,1966,533.0,"Black, Gold",70020,111.97,Caesars Superdome
+New York Giants,53.0,"East Rutherford, NJ",4.0,NFL,NFC,1925,639.0,"Royal Blue, Red",79307,126.74,MetLife Stadium
+New York Jets,54.0,"East Rutherford, NJ",1.0,NFL,AFC,1959,560.0,"Hunter Green, White",77890,112.56,MetLife Stadium
+Philadelphia Eagles,55.0,"Philadelphia, PA",1.0,NFL,NFC,1933,598.0,"Midnight Green, Silver",69878,139.01,Lincoln Financial Field
+Pittsburgh Steelers,56.0,"Pittsburgh, PA",6.0,NFL,AFC,1933,548.0,"Black, Gold",66977,127.04,Acrisure Stadium
+San Francisco 49ers,57.0,"Santa Clara, CA",5.0,NFL,NFC,1944,622.0,"Red, Gold",71655,161.33,Levi's Stadium
+Seattle Seahawks,58.0,"Seattle, WA",1.0,NFL,NFC,1974,555.0,"Navy Blue, Neon Green",68735,127.71,Lumen Field
+Tampa Bay Buccaneers,59.0,"Tampa, FL",2.0,NFL,NFC,1974,531.0,"Red, Pewter",63756,124.43,Raymond James Stadium
+Tennessee Titans,60.0,"Nashville, TN",0.0,NFL,AFC,1959,516.0,"Navy, Light Blue",64520,107.37,Nissan Stadium
+Washington Commanders,61.0,"Landover, MD",3.0,NFL,NFC,1932,545.0,"Burgundy, Gold",63950,124.8,Commanders Field
+Arizona Diamondbacks,62.0,"Phoenix, AZ",1.0,MLB,National League,1998,276.0,"Sedona Red, Black",24212,90.0,Chase Field
+Atlanta Braves,63.0,"Atlanta, GA",4.0,MLB,National League,1876,425.0,"Navy, Red",39401,117.0,Truist Park
+Baltimore Orioles,64.0,"Baltimore, MD",3.0,MLB,American League,1901,264.0,"Black, Orange",23911,123.0,Oriole Park at Camden Yards
+Boston Red Sox,65.0,"Boston, MA",9.0,MLB,American League,1901,513.0,"Red, Navy Blue",32989,170.0,Fenway Park
+Chicago White Sox,66.0,"Chicago, IL",3.0,MLB,American League,1901,276.0,"Black, Silver",20613,113.0,Guaranteed Rate Field
+Chicago Cubs,67.0,"Chicago, IL",3.0,MLB,National League,1876,451.0,"Blue, Red",34261,141.0,Wrigley Field
+Cincinnati Reds,68.0,"Cincinnati, OH",5.0,MLB,National League,1882,250.0,"Red, White",25164,90.0,Great American Ball Park
+Cleveland Guardians,69.0,"Cleveland, OH",2.0,MLB,American League,1901,268.0,"Navy Blue, Red",22643,95.0,Progressive Field
+Colorado Rockies,70.0,"Denver, CO",0.0,MLB,National League,1993,286.0,"Purple, Black",32197,85.0,Coors Field
+Detroit Tigers,71.0,"Detroit, MI",4.0,MLB,American League,1901,260.0,"Navy Blue, White",19912,87.0,Comerica Park
+Houston Astros,72.0,"Houston, TX",2.0,MLB,American League,1962,407.0,"Navy Blue, Orange",37683,131.0,Minute Maid Park
+Kansas City Royals,73.0,"Kansas City, MO",2.0,MLB,American League,1969,260.0,"Royal Blue, White",16136,86.0,Kauffman Stadium
+Los Angeles Angels,74.0,"Anaheim, CA",1.0,MLB,American League,1961,371.0,"Red, Navy Blue",32600,79.0,Angel Stadium
+Los Angeles Dodgers,75.0,"Los Angeles, CA",7.0,MLB,National League,1883,581.0,"Dodger Blue, White",47371,209.0,Dodger Stadium
+Miami Marlins,76.0,"Miami, FL",2.0,MLB,National League,1993,238.0,"Black, Blue",14356,69.0,loanDepot park
+Milwaukee Brewers,77.0,"Milwaukee, WI",0.0,MLB,National League,1969,294.0,"Navy Blue, Yellow",31498,97.0,American Family Field
+Minnesota Twins,78.0,"Minneapolis, MN",3.0,MLB,American League,1901,267.0,"Navy Blue, Red",24372,72.0,Target Field
+New York Yankees,79.0,"Bronx, NY",27.0,MLB,American League,1903,657.0,"Navy Blue, Gray",40358,186.0,Yankee Stadium
+New York Mets,80.0,"Flushing, Queens, NY",2.0,MLB,National League,1962,374.0,"Royal Blue, Orange",31772,100.0,Citi Field
+Oakland Athletics,81.0,"Oakland, CA",9.0,MLB,American League,1901,212.0,"Green, Gold",10276,100.0,Oakland Coliseum
+Philadelphia Phillies,82.0,"Philadelphia, PA",2.0,MLB,National League,1883,398.0,"Red, Blue",37686,119.0,Citizens Bank Park
+Pittsburgh Pirates,83.0,"Pittsburgh, PA",5.0,MLB,National League,1882,262.0,"Black, Gold",20131,89.0,PNC Park
+San Diego Padres,84.0,"San Diego, CA",0.0,MLB,National League,1969,324.0,"Brown, Gold",40390,140.0,PETCO Park
+San Francisco Giants,85.0,"San Francisco, CA",8.0,MLB,National League,1883,421.0,"Black, Orange",30866,144.0,Oracle Park
+Seattle Mariners,86.0,"Seattle, WA",0.0,MLB,American League,1977,363.0,"Navy Blue, Northwest Green",33215,95.0,T-Mobile Park
+St Louis Cardinals,87.0,"St. Louis, MO",11.0,MLB,National League,1882,358.0,"Red, Navy Blue",40013,140.0,Busch Stadium
+Tampa Bay Rays,88.0,"St. Petersburg, FL",0.0,MLB,American League,1998,248.0,"Navy Blue, Light Blue",17781,106.0,Tropicana Field
+Texas Rangers,89.0,"Arlington, TX",1.0,MLB,American League,1961,366.0,"Royal Blue, Red",31272,131.0,Globe Life Field
+Toronto Blue Jays,90.0,"Toronto, ON",2.0,MLB,American League,1977,294.0,"Royal Blue, Navy Blue",37307,110.0,Rogers Centre
+Washington Nationals,91.0,"Washington, DC",1.0,MLB,National League,1969,356.0,"Red, Navy Blue",23035,107.0,Nationals Park
+Atlanta United FC,92.0,Atlanta,1.0,MLS, Eastern Conference,2014,81.0,"Black, Red",47526,143.0,Mercedes-Benz Stadium
+Austin FC,93.0,Austin,0.0,MLS, Western Conference,2018,84.0,"Green, Black",20738,265.0,Q2 Stadium
+CF Montreal,94.0,Montreal,0.0,MLS, Eastern Conference,2010,30.0,"Blue, Black",17552,82.0,Saputo Stadium
+Charlotte FC,95.0,"Charlotte, NC",0.0,MLS, Eastern Conference,2019,69.0,"Blue, White",36337,155.0,Bank of America Stadium
+Chicago Fire,96.0,Chicago,1.0,MLS, Eastern Conference,1997,25.0,"Red, Blue",18170,86.0,Soldier Field
+FC Cincinnati,97.0,Cincinnati,0.0,MLS, Eastern Conference,2018,56.0,"Blue, Orange",25367,96.0,TQL Stadium
+Colorado Rapids,98.0,Commerce City,1.0,MLS, Western Conference,1995,33.0,"Burgundy, Sky Blue",15409,88.0,Dick's Sporting Goods Park
+Columbus Crew,99.0,Columbus,3.0,MLS, Eastern Conference,1994,55.0,"Black, Gold",20314,125.0,Lower.com Field
+DC United,100.0,"Washington, D.C.",4.0,MLS, Eastern Conference,1994,70.0,"Black, Red",17540,135.0,Audi Field
+FC Dallas,101.0,Frisco,0.0,MLS, Western Conference,1995,40.0,"Red, Blue",18239,130.0,Toyota Stadium
+Houston Dynamo,102.0,Houston,2.0,MLS, Western Conference,2005,39.0,"Orange, Black",15029,87.0,Shell Energy Stadium
+Inter Miami CF,103.0,Fort Lauderdale,0.0,MLS, Eastern Conference,2018,56.0,"Pink, Black",17440,152.0,Chase Stadium
+Los Angeles Galaxy,104.0,Carson,5.0,MLS, Western Conference,1994,98.0,"White, Blue",24106,137.0,Dignity Health Sports Park
+Los Angeles FC,105.0,Los Angeles,1.0,MLS, Western Conference,2014,116.0,"Black, Gold",22155,245.0,BMO Stadium
+Minnesota United FC,106.0,Saint Paul,0.0,MLS, Western Conference,2015,54.0,"Gray, Blue",19568,96.0,Allianz Field
+Nashville SC,107.0,Nashville,0.0,MLS, Eastern Conference,2017,46.0,"Gold, Navy",28257,108.0,Geodis Park
+New England Revolution,108.0,Foxborough,0.0,MLS, Eastern Conference,1995,37.0,"Navy Blue, Red",23940,93.0,Gillette Stadium
+New York City FC,109.0,Bronx,1.0,MLS, Eastern Conference,2013,55.0,"Sky Blue, Navy Blue",20251,164.0,Yankee Stadium
+New York Red Bulls,110.0,Harrison,0.0,MLS, Eastern Conference,1994,50.0,"Red, White",18246,235.0,Red Bull Arena
+Orlando City SC,111.0,Orlando,0.0,MLS, Eastern Conference,Nove,42.0,"Purple, Gold",20590,126.0,Inter&Co Stadium
+Philadelphia Union,112.0,Chester,0.0,MLS, Eastern Conference,2008,54.0,"Navy Blue, Gold",18926,105.0,Subaru Park
+Portland Timbers,113.0,Portland,1.0,MLS, Western Conference,2009,65.0,"Green, Gold",23103,165.0,Providence Park
+Real Salt Lake,114.0,Sandy,2.0,MLS, Western Conference,2004,43.0,"Claret Red, Cobalt Blue",19429,68.0,America First Field
+San Jose Earthquakes,115.0,San Jose,2.0,MLS, Western Conference,June,43.0,"Blue, Black",18412,132.0,PayPal Park
+Seattle Sounders,116.0,Seattle,2.0,MLS, Western Conference,1994,66.0,"Green, Blue",32161,116.0,Lumen Field
+Sporting Kansas City,117.0,Kansas City,2.0,MLS, Western Conference,1995,59.0,"Blue, Dark Indigo",18616,127.0,Children's Mercy Park
+Toronto FC,118.0,Toronto,1.0,MLS, Eastern Conference,2005,62.0,"Red, Gray",25310,134.0,BMO Field
+Vancouver Whitecaps FC,119.0,Vancouver,0.0,MLS, Western Conference,2009,21.0,"White, Blue",16745,109.0,BC Place
+Anaheim Ducks,120.0,"Anaheim, CA",1.0,NHL,WESTERN CONFERENCE,1993,164.0,"Black, Gold",15649,61.04,Honda Center
+Arizona Coyotes,121.0,"Tempe, AZ",0.0,NHL,WESTERN CONFERENCE,1972,120.0,"Brick Red, Desert Sand",4600,49.87,Mullett Arena
+Boston Bruins,122.0,"Boston, MA",6.0,NHL,EASTERN CONFERENCE,1924,239.0,"Black, Gold",17850,102.51,TD Garden
+Buffalo Sabres,123.0,"Buffalo, NY",0.0,NHL,EASTERN CONFERENCE,1970,159.0,"Navy Blue, Gold",15994,55.22,KeyBank Center
+Calgary Flames,124.0,"Calgary, AB",1.0,NHL,WESTERN CONFERENCE,1972,183.0,"Red, Yellow",17497,56.66,Scotiabank Saddledome
+Carolina Hurricanes,125.0,"Raleigh, NC",1.0,NHL,EASTERN CONFERENCE,1972,177.0,"Red, Black",18798,57.32,PNC Arena
+Chicago Blackhawks,126.0,"Chicago, IL",6.0,NHL,WESTERN CONFERENCE,1926,228.0,"Red, Black",18822,109.23,United Center
+Colorado Avalanche,127.0,"Denver, CO",3.0,NHL,WESTERN CONFERENCE,1972,182.0,"Burgundy, Blue",18101,55.05,Ball Arena
+Columbus Blue Jackets,128.0,"Columbus, OH",0.0,NHL,EASTERN CONFERENCE,2000,151.0,"Navy Blue, Red",17009,57.02,Nationwide Arena
+Dallas Stars,129.0,"Dallas, TX",1.0,NHL,WESTERN CONFERENCE,1967,210.0,"Green, Silver",18532,59.95,American Airlines Center
+Detroit Red Wings,130.0,"Detroit, MI",11.0,NHL,EASTERN CONFERENCE,1926,199.0,"Red, White",18966,90.43,Little Caesars Arena
+Edmonton Oilers,131.0,"Edmonton, AB",5.0,NHL,WESTERN CONFERENCE,1971,281.0,"Orange, Navy Blue",19262,79.17,Rogers Place
+Florida Panthers,132.0,"Sunrise, FL",0.0,NHL,EASTERN CONFERENCE,1993,161.0,"Red, Navy Blue",18627,37.19,Amerant Bank Arena
+Los Angeles Kings,133.0,"Los Angeles, CA",2.0,NHL,WESTERN CONFERENCE,1967,279.0,"Black, Silver",17958,83.53,Crypto.com Arena
+Minnesota Wild,134.0,"St. Paul, MN",0.0,NHL,WESTERN CONFERENCE,2000,185.0,"Green, Red",18511,83.06,Xcel Energy Center
+Montreal Canadiens,135.0,"Montreal, QC",24.0,NHL,EASTERN CONFERENCE,1909,265.0,"Red, Blue",21099,90.37,Bell Centre
+Nashville Predators,136.0,"Nashville, TN",0.0,NHL,WESTERN CONFERENCE,1997,180.0,"Gold, Navy",17307,78.4,Bridgestone Arena
+New Jersey Devils,137.0,"Newark, NJ",3.0,NHL,EASTERN CONFERENCE,1974,240.0,"Red, Black",17625,62.52,Prudential Center
+New York Islanders,138.0,"Belmont Park, NY",4.0,NHL,EASTERN CONFERENCE,1972,183.0,"Blue, Orange",18142,59.89,UBS Arena
+New York Rangers,139.0,"New York, NY",4.0,NHL,EASTERN CONFERENCE,1926,265.0,"Blue, Red",17981,120.93,Madison Square Garden
+Ottawa Senators,140.0,"Ottawa, ON",0.0,NHL,EASTERN CONFERENCE,1992,128.0,"Red, Black",17536,59.21,Canadian Tire Centre
+Philadelphia Flyers,141.0,"Philadelphia, PA",2.0,NHL,EASTERN CONFERENCE,1967,219.0,"Orange, Black",18382,85.99,Wells Fargo Center
+Pittsburgh Penguins,142.0,"Pittsburgh, PA",5.0,NHL,EASTERN CONFERENCE,1967,207.0,"Black, Gold",17878,85.99,PPG Paints Arena
+San Jose Sharks,143.0,"San Jose, CA",0.0,NHL,WESTERN CONFERENCE,1991,158.0,"Teal, Black",13462,64.1,SAP Center at San Jose
+Seattle Kraken,144.0,"Seattle, WA",0.0,NHL,WESTERN CONFERENCE,2021,197.0,"Deep Sea Blue, Ice Blue",17905,155.0,Climate Pledge Arena
+St Louis Blues,145.0,"St. Louis, MO",1.0,NHL,WESTERN CONFERENCE,1967,184.0,"Blue, Yellow",18084,62.38,Enterprise Center
+Tampa Bay Lightning,146.0,"Tampa, FL",3.0,NHL,EASTERN CONFERENCE,1992,196.0,"Blue, White",19092,64.39,Amalie Arena
+Toronto Maple Leafs,147.0,"Toronto, ON",13.0,NHL,EASTERN CONFERENCE,1917,281.0,"Blue, White",18785,128.69,Scotiabank Arena
+Vancouver Canucks,148.0,"Vancouver, BC",0.0,NHL,WESTERN CONFERENCE,1945,198.0,"Blue, Green",18823,81.73,Rogers Arena
+Vegas Golden Knights,149.0,"Las Vegas, NV",1.0,NHL,WESTERN CONFERENCE,2017,233.0,"Gold, Black",18127,104.36,T-Mobile Arena
+Washington Capitals,150.0,"Washington, DC",1.0,NHL,EASTERN CONFERENCE,1974,218.0,"Red, Blue",17804,94.56,Capital One Arena
+Winnipeg Jets,151.0,"Winnipeg, MB",0.0,NHL,WESTERN CONFERENCE,1997,162.0,"Navy Blue, Silver",13401,71.32,Canada Life Centre
+St Louis City SC,152.0,"St. Louis, MO",0.0,MLS,Western Conference,2019,150.0,"Red, Navy Blue",22423,145.0,City Park
