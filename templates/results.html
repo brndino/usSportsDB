@@ -1,3 +1,5 @@
+<!-- results.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +11,8 @@
     <h1>Search Results</h1>
     <ul>
         {% for team in teams %}
-            <li>{{ team.Team }}</li>
+        <li><a href="{{ url_for('team_details', team_id=team['ID']) }}">,{{ team['Team'] }}</a></li>
+
         {% endfor %}
     </ul>
 </body>
