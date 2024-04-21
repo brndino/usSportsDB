@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Details</title>
+    <style>
+        .like-button {
+            background-color: #5bcb32;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Team Details:</h1>
+    <h2>Team Name: {{ team['Team'] }} </h2>
+    
+    <ul>
+        <li>Team Identification Number: {{team['ID']}}</li>
+        <li>Championships: {{ team['Championships'] }}</li>
+        <li>League: {{ team['League'] }}</li>
+        <li>Conference: {{team['Conference']}}</li>
+        <li>Founded: {{team['Founded']}}</li>
+        <li>Revenue: {{team['Revenue']}}</li>
+        <li>Colors: {{team['Colors']}}</li>
+        <li>Attendance: {{team['Attendance']}}</li>
+        <li>Ticket: {{team['Ticket']}}</li>
+        <li>Stadium: {{team['Stadium']}}</li>
+
+        <!-- Add more details here as needed -->
+    </ul>
+    
+    <h4>Team Staff Detail</h4>
+    <ul>
+        <li>Name: {{staff['Name']}}</li>
+        <li>Position: {{staff['Position']}}</li>
+    </ul>
+    <button class="like-button">Like</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the like button element
+            var likeButton = document.querySelector('.like-button');
+
+            // Add click event listener to the like button
+            likeButton.addEventListener('click', function() {
+                // Toggle the text of the button
+                if (likeButton.textContent === 'Like') {
+                    likeButton.textContent = 'Liked';
+                } else {
+                    likeButton.textContent = 'Like';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
