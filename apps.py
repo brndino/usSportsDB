@@ -105,6 +105,19 @@ def results():
         return render_template('results.html', teams=teams)
     else:
         return "No search term provided"
+@app.route('/team/<int:team_id>')
+def team_details(team_id):
+    cursor = mydb.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM Teams WHERE id = %s", (team_id,))
+    team = cursor.fetchone()
+    cursor.execute("SELECT * FROM Staff WHERE sid = %s", (team_id,))
+    staff = cursor.fetchone()
+    cursor.close()  # Close the cursor after fetching data
+    
+    if team:
+        return render_template('team_details.html', team=team, staff=staff)
+    else:
+        return "Team not found"
 
 if __name__ == '__main__':
     app.run(debug=True)
