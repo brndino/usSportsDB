@@ -169,8 +169,13 @@ def team_details(team_id):
     cursor.execute("SELECT * FROM Teams WHERE id = %s", (team_id,))
     team = cursor.fetchone()
     cursor.execute("SELECT * FROM Staff WHERE sid = %s", (team_id,))
-    staff = cursor.fetchone()
+    staff = cursor.fetchall()
     cursor.close()
+    for staff_member in staff:
+        if staff_member['Sid'] == 0:
+            staff_member['Role'] = 'Owner'
+        elif staff_member['Sid'] == 1:
+            staff_member['Role'] = 'Head Coach'
     
     if team:
         return render_template('team_details.html', team=team, staff=staff)

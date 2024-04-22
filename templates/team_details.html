@@ -33,12 +33,23 @@
 
         <!-- Add more details here as needed -->
     </ul>
+    <h1>Staff Details</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Description</th>
+        </tr>
+        {% for member in staff %}
+        <tr>
+            <td>{{ member['Name'] }}</td>
+            <td>{{ member['Position'] }}</td>
+            <td>{{ member['Description'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
     
-    <h4>Team Staff Detail</h4>
-    <ul>
-        <li>Name: {{staff['Name']}}</li>
-        <li>Position: {{staff['Position']}}</li>
-    </ul>
+    
     <button class="like-button">Like</button>
 
     <script>
