@@ -6,7 +6,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import mpld3
 import numpy as np
-
+matplotlib.use('Agg') #needed for graph to work
 app = Flask(__name__)
 
 mydb = mysql.connector.connect(
