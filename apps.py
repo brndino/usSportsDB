@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request , redirect, url_for
 import mysql.connector
 import hashlib
+import pandas as pd
+import matplotlib
+import matplotlib.pyplot as plt
+import mpld3
+import numpy as np
 
 app = Flask(__name__)
 
@@ -45,6 +50,59 @@ class UserAuthenticator:
         return self.cursor.rowcount > 0  # Returns True if any row was deleted, meaning account was found and deleted
 
 authenticator = UserAuthenticator()
+class Teams:        #function to get filtered teams calling db
+    def __init__(self):
+        self.cursor = mydb.cursor()
+
+    def filtered_teams(self, league, y_value, color=None, city=None, year=None, maxmin=None):
+        sql = "Select t.* "
+
+        if y_value == "owners":
+            y_value = "Owners"
+            sql += ", (SELECT COUNT(*) FROM Staff WHERE Tid = t.ID AND Position = 'Owner') AS Owners FROM Teams t"
+            if city:
+                sql += " left join Stadiums s on t.Stadium = s.Name"
+        elif y_value == "stadium-capacity" or city:
+            if (y_value == "stadium-capacity"):
+                y_value = "stadium_capacity"
+                sql += ",s.size As stadium_capacity"
+            sql += " From Teams t left join Stadiums s on t.Stadium = s.Name"
+        else:
+            sql += " From Teams t"
+        
+        sql += " WHERE 1=1"
+        params = []
+        if league != "All":
+            sql += " And t.League = %s"
+            params.append(league)
+        if color:
+            sql += " AND t.Colors LIKE %s"
+            params.append('%' + color + '%')
+        if city:
+            sql += " AND s.location LIKE %s" 
+            params.append(f'%{city},%') 
+        if year:
+            sql += " AND t.Founded = %s"
+            params.append(year)
+        if maxmin == "+":
+            sql += " ORDER BY " + y_value + " DESC"
+        else:
+            sql += " ORDER BY " + y_value + " ASC"
+
+        print(params)
+        self.cursor.execute(sql, params)
+        result = self.cursor.fetchall()
+        column_names = [desc[0] for desc in self.cursor.description]
+        df = pd.DataFrame(result, columns=column_names)
+
+        
+
+        return df,y_value.capitalize()
+    
+
+    
+teamcommand = Teams()
+
 
 @app.route('/')
 def index():
@@ -118,6 +176,41 @@ def team_details(team_id):
         return render_template('team_details.html', team=team, staff=staff)
     else:
         return "Team not found"
+
+@app.route('/comparePage')  #takes to compare page
+def compare():
+    return render_template('compare.html')
+
+@app.route('/compareFilters', methods=['POST']) #compare features
+def filters():
+    #get mandatory filters
+    league = request.form.get('league')
+    y_value = request.form.get('y-value')
+    if not league:
+        league=="All"
+    if not y_value:
+        return "Please select a y-value"
+    #optional filters
+    color = request.form.get('color')
+    city = request.form.get('city')
+    year = request.form.get('year')
+    maxmin = request.form.get('max-min')
+    filteredteams, yvalue = teamcommand.filtered_teams(league, y_value, color, city, year, maxmin)
+    #make sure the filtered teams are not empty and shrink if too large
+    if len(filteredteams) == 0:
+        return "No teams found with the given filters"
+    elif len(filteredteams) > 10:
+        filteredteams = filteredteams[:10]
+    html_table = filteredteams.to_html(index=False)
+    plt.figure(figsize=(10,6))
+    bars = plt.bar(filteredteams['Team'], filteredteams[yvalue], width = 0.5)
+    plt.ylabel(yvalue)
+    plt.title('Filtered Teams vs '+yvalue)
+    plt.gca().set_xticklabels(filteredteams['Team'])
+    plt.tight_layout()
+    plot_html = mpld3.fig_to_html(plt.gcf())
+    
+    return (render_template('graph.html', html_table = html_table, plot_html=plot_html))
 
 if __name__ == '__main__':
     app.run(debug=True)
