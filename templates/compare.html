@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compare</title>
+</head>
+<body>
+    <h1>Compare</h1>
+    <body>
+        <h1>Sports Graph Filters</h1>
+    
+        <form id="filter-form" action="/compareFilters" method="POST">
+            <!-- League Filter -->
+            <label for="league-filter">Select League:</label>
+            <select id="league-filter" name="league">
+                <option value="All">All</option>
+                <option value="MLS">MLS</option>
+                <option value="NBA">NBA</option>
+                <option value="NFL">NFL</option>
+                <option value="NHL">NHL</option>
+                <option value="MLB">MLB</option>
+            </select>
+    
+            <!-- Color Filter -->
+            <label for="color-filter">Select Color:</label>
+            <input type="text" id="color-filter" name="color">
+    
+            <!-- City Filter -->
+            <label for="city-filter">Select City:</label>
+            <input type="text" id="city-filter" name="city">
+    
+            <!-- Year Filter -->
+            <label for="year-filter">Select Year:</label>
+            <input type="number" id="year-filter" name="year" min="1800" max="2100" step="1">
+    
+            <!-- Y-Value Filter -->
+            <label for="y-value-filter">Select Y-Value:</label>
+            <select id="y-value-filter" name="y-value">
+                <option value="Championships">Championships</option>
+                <option value="Revenue">Revenue</option>
+                <option value="owners">Amount of Owners</option>
+                <option value="Ticket">Ticket Prices</option>
+                <option value="Attendance">Attendance</option>
+                <option value="stadium-capacity">Stadium Capacity</option>
+            </select>
+            <!-- Show Max or Min-->
+            <label for="max-min-filter">Show Top or Bottom:</label>
+            <select id="max-min-filter" name="max-min">
+                <option value="+">Highest</option>
+                <option value="-">Lowest</option>
+            </select>
+            <!-- Submit Button -->
+            <button type="submit">Apply Filters</button>
+
+        </form>
