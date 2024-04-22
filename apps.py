@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request , redirect, url_for
+from flask import Flask, render_template, request , redirect, url_for, session, jsonify
 import mysql.connector
 import hashlib
 import pandas as pd
@@ -8,6 +8,8 @@ import mpld3
 import numpy as np
 matplotlib.use('Agg') #needed for graph to work
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/' 
+
 
 mydb = mysql.connector.connect(
             host="sportswiki.c78k8gy42c1h.us-east-2.rds.amazonaws.com",
@@ -42,7 +44,11 @@ class UserAuthenticator:
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
         self.cursor.execute("SELECT * FROM Users WHERE username = %s AND password = %s", (username, hashed_password))
         user = self.cursor.fetchone()
-        return bool(user)  # If user is not None, login successful
+        if user:
+            session['is_admin'] = user[1]  # Store admin status in session
+            return True  # If user is not None, login successful
+        else:
+            return False
 
     def deactivate_account(self, username):
         self.cursor.execute("DELETE FROM Users WHERE username = %s", (username,))
@@ -163,6 +169,7 @@ def results():
         return render_template('results.html', teams=teams)
     else:
         return "No search term provided"
+    
 @app.route('/team/<int:team_id>')
 def team_details(team_id):
     cursor = mydb.cursor(dictionary=True)
@@ -178,7 +185,7 @@ def team_details(team_id):
             staff_member['Role'] = 'Head Coach'
     
     if team:
-        return render_template('team_details.html', team=team, staff=staff)
+        return render_template('team_details.html', team=team, staff=staff, is_admin=session.get('is_admin', False))
     else:
         return "Team not found"
 
@@ -216,6 +223,65 @@ def filters():
     plot_html = mpld3.fig_to_html(plt.gcf())
     
     return (render_template('graph.html', html_table = html_table, plot_html=plot_html))
+
+@app.route('/save_changes', methods=['POST'])
+def save_changes():
+    cursor = mydb.cursor(dictionary=True)
+    if request.method == 'POST':
+        data = request.json  # Get the JSON data from the request
+        team_id = data.get('teamID')
+        team_name = data.get('teamName')
+        championships = data.get('championships')
+        league = data.get('league')
+        conference = data.get('conference')
+        revenue = data.get('revenue')
+        colors = data.get('colors')
+        founded = data.get('founded')
+        stadium = data.get('stadium')
+        staff_data = data.get('staff')
+        tickets = data.get('ticket')
+        attendance = data.get('attendance')
+        
+        # Update team details
+        update_team_query = '''
+            UPDATE Teams 
+            SET Team = %s, championships = %s, league = %s, conference = %s, 
+                revenue = %s, colors = %s, founded = %s, stadium = %s, ticket = %s, attendance = %s
+            WHERE ID = %s
+        '''
+        team_values = (team_name, championships, league, conference, revenue, colors, founded, stadium, tickets, attendance, team_id)
+       
+        cursor.execute(update_team_query, team_values)
+
+        
+        # Update staff details
+        for staff_member in staff_data:
+            update_staff_query = '''
+                UPDATE Staff 
+                SET Name = %s, position = %s, description = %s 
+                WHERE Sid = %s
+            '''
+            staff_values = (staff_member.get('name'), staff_member.get('position'), staff_member.get('description'), staff_member.get('staffID'))
+            
+            cursor.execute("SELECT Sid FROM Staff WHERE Sid = %s", (staff_member.get('staffID'),))
+            sid_from_db = cursor.fetchone()
+
+            cursor.execute(update_staff_query, staff_values)
+
+        
+        mydb.commit()  # Commit the changes to the database
+         # Re-fetch the updated data from the database
+        cursor.execute("SELECT * FROM Teams WHERE ID = %s", (team_id,))
+        updated_team = cursor.fetchone()
+        cursor.execute("SELECT * FROM Staff WHERE Tid = %s", (team_id,))
+        updated_staff = cursor.fetchall()
+        
+        cursor.close()
+        
+        # Render the template with the updated data
+        return render_template('team_details.html', team=updated_team, staff=updated_staff, is_admin=session.get('is_admin', False))
+    else:
+        return jsonify({'message': 'Invalid request method.'}), 405
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -12,61 +12,140 @@
             padding: 5px 10px;
             cursor: pointer;
         }
+        .edit-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     
     <h1>Team Details:</h1>
-    <h2>Team Name: {{ team['Team'] }} </h2>
+    <h2>Team Name: <span id="teamName">{{ team['Team'] }}</span></h2>
     
     <ul>
-        <li>Team Identification Number: {{team['ID']}}</li>
-        <li>Championships: {{ team['Championships'] }}</li>
-        <li>League: {{ team['League'] }}</li>
-        <li>Conference: {{team['Conference']}}</li>
-        <li>Founded: {{team['Founded']}}</li>
-        <li>Revenue: {{team['Revenue']}}</li>
-        <li>Colors: {{team['Colors']}}</li>
-        <li>Attendance: {{team['Attendance']}}</li>
-        <li>Ticket: {{team['Ticket']}}</li>
-        <li>Stadium: {{team['Stadium']}}</li>
-
-        <!-- Add more details here as needed -->
+        <li>Team Identification Number: <span id="teamID">{{team['ID']}}</span></li>
+        <li>Championships: <span id="championships">{{ team['Championships'] }}</span></li>
+        <li>League: <span id="league">{{ team['League'] }}</span></li>
+        <li>Conference: <span id="conference">{{team['Conference']}}</span></li>
+        <li>Founded: <span id="founded">{{team['Founded']}}</span></li>
+        <li>Revenue: <span id="revenue">{{team['Revenue']}}</span></li>
+        <li>Colors: <span id="colors">{{team['Colors']}}</span></li>
+        <li>Attendance: <span id="attendance">{{team['Attendance']}}</span></li>
+        <li>Ticket: <span id="ticket">{{team['Ticket']}}</span></li>
+        <li>Stadium: <span id="stadium">{{team['Stadium']}}</span></li>
     </ul>
+    
     <h1>Staff Details</h1>
-    <table border="1">
+    <table border="1" id="staffTable">
         <tr>
             <th>Name</th>
             <th>Position</th>
             <th>Description</th>
         </tr>
         {% for member in staff %}
-        <tr>
-            <td>{{ member['Name'] }}</td>
-            <td>{{ member['Position'] }}</td>
-            <td>{{ member['Description'] }}</td>
+        <tr data-sid="{{ member['Sid'] }}">
+            <td><span contenteditable="false">{{ member['Name'] }}</span></td>
+            <td><span contenteditable="false">{{ member['Position'] }}</span></td>
+            <td><span contenteditable="false">{{ member['Description'] }}</span></td>
         </tr>
         {% endfor %}
+
     </table>
     
-    
+    {% if is_admin %}
+    <button class="edit-button" onclick="enableEditMode()">Edit</button>
+    {% endif %}
+
     <button class="like-button">Like</button>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get the like button element
-            var likeButton = document.querySelector('.like-button');
-
-            // Add click event listener to the like button
-            likeButton.addEventListener('click', function() {
-                // Toggle the text of the button
-                if (likeButton.textContent === 'Like') {
-                    likeButton.textContent = 'Liked';
-                } else {
-                    likeButton.textContent = 'Like';
-                }
+        function enableEditMode() {
+            // Enable editing for all spans
+            var spans = document.querySelectorAll('span');
+            spans.forEach(function(span) {
+                span.contentEditable = true;
             });
-        });
+
+            // Show a save button
+            var editButton = document.querySelector('.edit-button');
+            editButton.textContent = 'Save';
+            editButton.onclick = saveChanges;
+        }
+
+        function saveChanges() {
+            // Disable editing for all spans
+            var spans = document.querySelectorAll('span');
+            spans.forEach(function(span) {
+                span.contentEditable = false;
+            });
+
+            // Update the team details with the new values
+            var teamID = document.getElementById('teamID').textContent;
+            var teamName = document.getElementById('teamName').textContent;
+            var championships = document.getElementById('championships').textContent;
+            var league = document.getElementById('league').textContent;
+            var conference = document.getElementById('conference').textContent;
+            var founded = document.getElementById('founded').textContent;
+            var revenue = document.getElementById('revenue').textContent;
+            var colors = document.getElementById('colors').textContent;
+            var attendance = document.getElementById('attendance').textContent;
+            var ticket = document.getElementById('ticket').textContent;
+            var stadium = document.getElementById('stadium').textContent;
+
+            // Update the staff details with the new values
+            var staffRows = document.querySelectorAll('#staffTable tr');
+            var staffData = [];
+            staffRows.forEach(function(row, index) {
+                var sid = row.getAttribute('data-sid');  // Get the Sid from the data-sid attribute
+                var name = row.cells[0].textContent;
+                var position = row.cells[1].textContent;
+                var description = row.cells[2].textContent;
+                staffData.push({ staffID: sid, name: name, position: position, description: description });
+            });
+
+
+
+            // Send the updated data to the server for processing
+            fetch('/save_changes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    teamID: teamID,
+                    teamName: teamName,
+                    championships: championships,
+                    league: league,
+                    conference: conference,
+                    founded: founded,
+                    revenue: revenue,
+                    colors: colors,
+                    attendance: attendance,
+                    ticket: ticket,
+                    stadium: stadium,
+                    staff: staffData
+                })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Changes saved successfully.');
+                    window.location.reload(); // Refresh the page after saving changes
+                } else {
+                    alert('Failed to save changes.');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Failed to save changes.');
+            });
+
+            // Restore the edit button functionality
+            var editButton = document.querySelector('.edit-button');
+            editButton.textContent = 'Edit';
+            editButton.onclick = enableEditMode;
+        }
     </script>
 </body>
 </html>
