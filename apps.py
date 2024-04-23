@@ -175,7 +175,7 @@ def team_details(team_id):
     cursor = mydb.cursor(dictionary=True)
     cursor.execute("SELECT * FROM Teams WHERE id = %s", (team_id,))
     team = cursor.fetchone()
-    cursor.execute("SELECT * FROM Staff WHERE sid = %s", (team_id,))
+    cursor.execute("SELECT * FROM Staff WHERE Tid = %s", (team_id,))
     staff = cursor.fetchall()
     cursor.close()
     for staff_member in staff:
