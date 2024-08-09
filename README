@@ -1,6 +1,3 @@
-teams(ID,name,championships,league,conference,revenue,colors,founded,stadium)
-staff(teamID,staffID,role,description,name)
-user(admin,username, password)
-stadiums(name,capacity,ticket,attendance,location)
+Run apps.py with templates in the same directory, gives a link and opens a website run on local.
 
 >>>>>>> 5b3e168b28dc15f9f12821c9eced90d938983570
